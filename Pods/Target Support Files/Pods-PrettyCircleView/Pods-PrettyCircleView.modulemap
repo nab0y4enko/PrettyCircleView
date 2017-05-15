@@ -1,6 +1,0 @@
-framework module Pods_PrettyCircleView {
-  umbrella header "Pods-PrettyCircleView-umbrella.h"
-
-  export *
-  module * { export * }
-}

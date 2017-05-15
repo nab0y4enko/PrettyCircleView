@@ -16,7 +16,7 @@
 		1BE7F63F1EC9D48700268AB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE7F63D1EC9D48700268AB5 /* LaunchScreen.storyboard */; };
 		1BE7F6441EC9D49500268AB5 /* PrettyCircleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE7F61C1EC9CB7600268AB5 /* PrettyCircleView.framework */; };
 		1BE7F6451EC9D49500268AB5 /* PrettyCircleView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE7F61C1EC9CB7600268AB5 /* PrettyCircleView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D1E1340F73625F3F9B35C3B5 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314E396E386D6370624828A /* Pods_Example.framework */; };
+		5B8F6A2311611EDF9738613B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314E396E386D6370624828A /* Pods_Example.framework */; };
 		E7678E026AA96AC974350C2D /* Pods_PrettyCircleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6AF04A563EDB52A12951AD /* Pods_PrettyCircleView.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE7F6441EC9D49500268AB5 /* PrettyCircleView.framework in Frameworks */,
-				D1E1340F73625F3F9B35C3B5 /* Pods_Example.framework in Frameworks */,
+				5B8F6A2311611EDF9738613B /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

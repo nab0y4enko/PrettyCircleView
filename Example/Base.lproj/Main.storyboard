@@ -21,28 +21,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KS5-KT-gmV" customClass="PrettyCircleView" customModule="PrettyCircleView">
-                                <rect key="frame" x="67.5" y="198" width="240" height="271"/>
-                                <color key="backgroundColor" red="8.7964966949999996e-05" green="0.64796143770000003" blue="0.89404261110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="3e2-aV-eab"/>
-                                    <constraint firstAttribute="height" constant="271" id="GYa-bR-zGv"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="contentBorderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="contentBorderColor">
-                                        <color key="value" red="0.99215686270000003" green="0.74509803919999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="contentImage" value="cat"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sUf-Qo-VZg">
+                                <rect key="frame" x="67" y="213.5" width="240" height="240"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTc-R2-BjX" customClass="PrettyCircleView" customModule="PrettyCircleView">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="120"/>
+                                        <color key="backgroundColor" red="0.99215686270000003" green="0.74509803919999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="2pO-hE-bdM"/>
+                                            <constraint firstAttribute="width" constant="240" id="TaY-cp-crv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="contentBackgroundColor">
+                                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="contentBorderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="contentBorderColor">
+                                                <color key="value" red="8.7964966949999996e-05" green="0.64796143770000003" blue="0.89404261110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="contentImage" value="cat"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taz-f5-gSW" customClass="PrettyCircleView" customModule="PrettyCircleView">
+                                        <rect key="frame" x="80.5" y="120" width="79" height="120"/>
+                                        <color key="backgroundColor" red="0.39939832689999999" green="0.55682194230000004" blue="0.23583933709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="iVI-QK-8Yf"/>
+                                            <constraint firstAttribute="width" constant="79" id="xZc-zU-RIg"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="contentImage" value="community-icon"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="contentBorderColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="contentBorderWidth">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KS5-KT-gmV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aSU-DZ-LhQ"/>
-                            <constraint firstItem="KS5-KT-gmV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bY7-Bd-qEb"/>
+                            <constraint firstItem="sUf-Qo-VZg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GC1-0g-yWH"/>
+                            <constraint firstItem="sUf-Qo-VZg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e92-cC-gfh"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,5 +78,6 @@
     </scenes>
     <resources>
         <image name="cat" width="640" height="400"/>
+        <image name="community-icon" width="96" height="96"/>
     </resources>
 </document>
