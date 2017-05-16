@@ -15,25 +15,25 @@ open class PrettyCircleView: UIView {
     // MARK: - Public
     @IBInspectable open var contentBackgroundColor: UIColor? = nil {
         didSet {
-            self.setNeedsLayout()
+            updateLayers()
         }
     }
     
     @IBInspectable open var contentBorderWidth: CGFloat = 0 {
         didSet {
-            self.setNeedsLayout()
+            updateLayers()
         }
     }
     
     @IBInspectable open var contentBorderColor: UIColor = UIColor.clear {
         didSet {
-            self.setNeedsLayout()
+            updateLayers()
         }
     }
     
     @IBInspectable open var contentImage: UIImage? = nil {
         didSet {
-            self.setNeedsLayout()
+            updateLayers()
         }
     }
     
@@ -83,12 +83,6 @@ open class PrettyCircleView: UIView {
     }
     
     // MARK: - UIView
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        layoutIfNeeded()
-    }
-    
     open override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -99,19 +93,6 @@ open class PrettyCircleView: UIView {
         super.prepareForInterfaceBuilder()
         
         updateLayers()
-    }
-    
-    // MARK: - Initializers
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setNeedsDisplay()
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        setNeedsDisplay()
     }
     
     // MARK: - Private Instance Methods
