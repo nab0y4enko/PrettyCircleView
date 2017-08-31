@@ -7,117 +7,103 @@
 //
 
 import UIKit
-import PrettyExtensionsKit
 
-@IBDesignable
-open class PrettyCircleView: UIView {
-    
+// MARK: - PrettyCircleView
+@IBDesignable open class PrettyCircleView: UIView {
+
     // MARK: - Public
     @IBInspectable open var contentBackgroundColor: UIColor? = nil {
         didSet {
-            updateLayers()
+            setNeedsDisplay()
         }
     }
-    
+
     @IBInspectable open var contentBorderWidth: CGFloat = 0 {
         didSet {
-            updateLayers()
+            setNeedsDisplay()
         }
     }
-    
+
     @IBInspectable open var contentBorderColor: UIColor = UIColor.clear {
         didSet {
-            updateLayers()
+            setNeedsDisplay()
         }
     }
-    
+
     @IBInspectable open var contentImage: UIImage? = nil {
         didSet {
-            updateLayers()
+            setNeedsDisplay()
         }
     }
-    
-    // MARK: - Private Properties
-    private lazy var contentBackgroundLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        self.layer.addSublayer(layer)
-        return layer
-    }()
-    
-    private lazy var contentLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        self.layer.addSublayer(layer)
-        return layer
-    }()
-    
-    private var contentLayersRadius: CGFloat {
-        return min(bounds.size.width, bounds.size.height) / 2.0
-    }
-    
-    private var contentLayersCenter: CGPoint {
-        return CGPoint(x: bounds.size.width / 2.0, y: bounds.size.height / 2.0)
-    }
-    
-    private var contentLayersSize: CGSize {
-        let lowerSideSize = min(bounds.size.width, bounds.size.height)
-        return CGSize(width: lowerSideSize, height: lowerSideSize)
-    }
-    
-    private var contentLayersCirclePath: CGPath {
-        let circleCenter = CGPoint(x: contentLayersRadius, y: contentLayersRadius)
-        let circleStartAngle: CGFloat = 0
-        let circleEndAngle: CGFloat = CGFloat.pi * 2.0
-        let circleRadius = contentBorderWidth > 0 ? contentLayersRadius - contentBorderWidth / 2.0 : contentLayersRadius
-       
-        let circlePath = UIBezierPath()
-        circlePath.addArc(withCenter: circleCenter, radius: circleRadius, startAngle: circleStartAngle, endAngle: circleEndAngle, clockwise: true)
 
-        return circlePath.cgPath
+    // MARK: - Initializers
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        updateBackgroundColor()
     }
 
-    private var contentLayersCircleMaskLayer: CAShapeLayer {
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = CGRect(origin: CGPoint.zero, size: contentLayersSize)
-        maskLayer.path = contentLayersCirclePath
-        return maskLayer
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        updateBackgroundColor()
     }
-    
+
     // MARK: - UIView
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        updateLayers()
-    }
-    
     open override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        
-        updateLayers()
+
+        updateBackgroundColor()
     }
-    
+
+    open override func draw(_ rect: CGRect) {
+        guard let context = UIGraphicsGetCurrentContext() else {
+            print("Get current graphics context is failed")
+            return
+        }
+
+        //Clear context
+        context.clear(rect)
+
+        //Fill background
+        if let backgroundColor = backgroundColor, backgroundColor != .clear {
+            context.setFillColor(backgroundColor.cgColor)
+            context.fill(rect)
+        }
+
+        //Main calculations
+        let contentCenter = CGPoint(x: rect.midX, y: rect.midY)
+        let contentRadius = min(rect.size.width, rect.size.height) / 2.0
+        let contentBorderRadius = contentRadius - contentBorderWidth / 2.0
+
+        ///Draw content background
+        if let contentBackgroundColor = contentBackgroundColor {
+            context.setFillColor(contentBackgroundColor.cgColor)
+            context.addArc(center: contentCenter, radius: contentRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false)
+            context.drawPath(using: .fill)
+        }
+
+        //Draw image
+        if let contentImage = contentImage {
+            let imageOrigin = CGPoint(x: contentCenter.x - contentImage.size.width / 2,
+                                      y: contentCenter.y - contentImage.size.height / 2)
+            UIBezierPath(arcCenter: contentCenter, radius: contentRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false).addClip()
+            contentImage.draw(at: imageOrigin)
+        }
+
+        ///Draw border line
+        context.setStrokeColor(contentBorderColor.cgColor)
+        context.setLineWidth(contentBorderWidth)
+        context.addArc(center: contentCenter, radius: contentBorderRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false)
+        context.drawPath(using: .stroke)
+    }
+
     // MARK: - Private Instance Methods
-    private func updateLayers() {
-        updateContentBackgroundLayer()
-        updateContentLayer()
-    }
-    
-    private func updateContentBackgroundLayer() {
-        contentBackgroundLayer.bounds = CGRect(origin: CGPoint.zero, size: contentLayersSize)
-        contentBackgroundLayer.position = contentLayersCenter
-        contentBackgroundLayer.fillColor = contentBackgroundColor?.cgColor
-        contentBackgroundLayer.path = contentLayersCirclePath
-        contentBackgroundLayer.mask = contentLayersCircleMaskLayer
-    }
-    
-    private func updateContentLayer() {
-        //Update size and content
-        contentLayer.bounds = CGRect(origin: CGPoint.zero, size: contentLayersSize)
-        contentLayer.position = contentLayersCenter
-        contentLayer.fillColor = UIColor.clear.cgColor
-        contentLayer.strokeColor = contentBorderColor.cgColor
-        contentLayer.lineWidth = contentBorderWidth
-        contentLayer.contents = contentImage?.prettySquared()?.cgImage
-        contentLayer.path = contentLayersCirclePath
-        contentLayer.mask = contentLayersCircleMaskLayer
+    private func updateBackgroundColor() {
+        guard backgroundColor == nil else {
+            return
+        }
+
+        backgroundColor = .clear
     }
 }

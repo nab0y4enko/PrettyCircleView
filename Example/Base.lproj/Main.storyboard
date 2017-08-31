@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sUf-Qo-VZg">
-                                <rect key="frame" x="67" y="213.5" width="240" height="240"/>
+                                <rect key="frame" x="22" y="163.5" width="330" height="340"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTc-R2-BjX" customClass="PrettyCircleView" customModule="PrettyCircleView">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="220"/>
                                         <color key="backgroundColor" red="0.99215686270000003" green="0.74509803919999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="2pO-hE-bdM"/>
-                                            <constraint firstAttribute="width" constant="240" id="TaY-cp-crv"/>
+                                            <constraint firstAttribute="height" constant="220" id="2pO-hE-bdM"/>
+                                            <constraint firstAttribute="width" constant="330" id="TaY-cp-crv"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="contentBackgroundColor">
@@ -45,11 +45,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taz-f5-gSW" customClass="PrettyCircleView" customModule="PrettyCircleView">
-                                        <rect key="frame" x="80.5" y="120" width="79" height="120"/>
-                                        <color key="backgroundColor" red="0.39939832689999999" green="0.55682194230000004" blue="0.23583933709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="113.5" y="220" width="103" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="iVI-QK-8Yf"/>
-                                            <constraint firstAttribute="width" constant="79" id="xZc-zU-RIg"/>
+                                            <constraint firstAttribute="width" constant="103" id="xZc-zU-RIg"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="contentImage" value="community-icon"/>
@@ -58,6 +57,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="contentBorderWidth">
                                                 <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="contentBackgroundColor">
+                                                <color key="value" red="0.34117648010000001" green="0.62352943419999995" blue="0.16862745579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
