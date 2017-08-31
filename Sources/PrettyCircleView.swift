@@ -11,6 +11,13 @@ import UIKit
 // MARK: - PrettyCircleView
 @IBDesignable open class PrettyCircleView: UIView {
 
+    // MARK: - PrettyCircleViewImageContentMode
+    public enum ImageContentMode {
+        case center
+        case aspectFit
+        case aspectFill
+    }
+
     // MARK: - Public
     @IBInspectable open var contentBackgroundColor: UIColor? = nil {
         didSet {
@@ -31,6 +38,12 @@ import UIKit
     }
 
     @IBInspectable open var contentImage: UIImage? = nil {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    open var imageContentMode: ImageContentMode = .center {
         didSet {
             setNeedsDisplay()
         }
@@ -85,10 +98,30 @@ import UIKit
 
         //Draw image
         if let contentImage = contentImage {
-            let imageOrigin = CGPoint(x: contentCenter.x - contentImage.size.width / 2,
-                                      y: contentCenter.y - contentImage.size.height / 2)
+            //Clip image circle
             UIBezierPath(arcCenter: contentCenter, radius: contentRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false).addClip()
-            contentImage.draw(at: imageOrigin)
+
+            switch imageContentMode {
+            case .center:
+                let calculatedImageOrigin = CGPoint(x: contentCenter.x - contentImage.size.width / 2,
+                                                    y: contentCenter.y - contentImage.size.height / 2)
+                contentImage.draw(at: calculatedImageOrigin)
+            case .aspectFit:
+                let calculatedImageSize = sizeAspectFit(originalSize: contentImage.size, boundingSize: rect.size)
+                print(calculatedImageSize)
+
+                let calculatedImageOrigin = CGPoint(x: rect.size.width / 2 - calculatedImageSize.width / 2,
+                                                    y: rect.size.height / 2 - calculatedImageSize.height / 2)
+                let calculatedImageRect = CGRect(origin: calculatedImageOrigin, size: calculatedImageSize)
+                contentImage.draw(in: calculatedImageRect)
+            case .aspectFill:
+                let calculatedImageSize = sizeAspectFill(originalSize: contentImage.size, minimumSize: rect.size)
+                print(calculatedImageSize)
+                let calculatedImageOrigin = CGPoint(x: rect.size.width / 2 - calculatedImageSize.width / 2,
+                                                    y: rect.size.height / 2 - calculatedImageSize.height / 2)
+                let calculatedImageRect = CGRect(origin: calculatedImageOrigin, size: calculatedImageSize)
+                contentImage.draw(in: calculatedImageRect)
+            }
         }
 
         ///Draw border line
@@ -105,5 +138,39 @@ import UIKit
         }
 
         backgroundColor = .clear
+    }
+
+    private func sizeAspectFit(originalSize: CGSize, boundingSize: CGSize) -> CGSize {
+        guard originalSize.width != 0, originalSize.height != 0 else {
+            return CGSize()
+        }
+
+        let aspectWidth = boundingSize.width / originalSize.width
+        let aspectHeight = boundingSize.height / originalSize.height
+
+        if aspectHeight < aspectWidth {
+            return CGSize(width: aspectHeight * originalSize.width, height: boundingSize.height)
+        } else if aspectHeight > aspectWidth {
+            return CGSize(width: boundingSize.width, height: aspectWidth * originalSize.height)
+        }
+
+        return boundingSize
+    }
+
+    private func sizeAspectFill(originalSize: CGSize, minimumSize: CGSize) -> CGSize {
+        guard originalSize.width != 0, originalSize.height != 0 else {
+            return CGSize()
+        }
+
+        let aspectWidth = minimumSize.width / originalSize.width
+        let aspectHeight = minimumSize.height / originalSize.height
+
+        if aspectHeight > aspectWidth {
+            return CGSize(width: aspectHeight * originalSize.width, height: minimumSize.height)
+        } else if aspectHeight < aspectWidth {
+            return CGSize(width: minimumSize.width, height: aspectWidth * originalSize.height)
+        }
+        
+        return minimumSize
     }
 }
