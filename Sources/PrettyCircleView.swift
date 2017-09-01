@@ -70,6 +70,8 @@ import UIKit
     }
 
     open override func draw(_ rect: CGRect) {
+        super.draw(rect)
+
         guard let context = UIGraphicsGetCurrentContext() else {
             print("Get current graphics context is failed")
             return
@@ -99,7 +101,7 @@ import UIKit
         //Draw image
         if let contentImage = contentImage {
             //Clip image circle
-            UIBezierPath(arcCenter: contentCenter, radius: contentRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false).addClip()
+            UIBezierPath(arcCenter: contentCenter, radius: contentRadius, startAngle: 0.0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true).addClip()
 
             switch imageContentMode {
             case .center:
