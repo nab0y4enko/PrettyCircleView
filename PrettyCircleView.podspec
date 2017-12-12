@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name              = "PrettyCircleView"
     s.module_name       = "PrettyCircleView"
-    s.version           = "0.2.0"
+    s.version           = "0.2.1"
     s.summary           = "A pretty view for  circle content."
     s.description       = "Rewritten UIView for rendering content in a circle."
     s.homepage          = "https://github.com/nab0y4enko/PrettyCircleView"

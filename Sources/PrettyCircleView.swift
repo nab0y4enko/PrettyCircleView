@@ -110,15 +110,12 @@ import UIKit
                 contentImage.draw(at: calculatedImageOrigin)
             case .aspectFit:
                 let calculatedImageSize = sizeAspectFit(originalSize: contentImage.size, boundingSize: rect.size)
-                print(calculatedImageSize)
-
                 let calculatedImageOrigin = CGPoint(x: rect.size.width / 2 - calculatedImageSize.width / 2,
                                                     y: rect.size.height / 2 - calculatedImageSize.height / 2)
                 let calculatedImageRect = CGRect(origin: calculatedImageOrigin, size: calculatedImageSize)
                 contentImage.draw(in: calculatedImageRect)
             case .aspectFill:
                 let calculatedImageSize = sizeAspectFill(originalSize: contentImage.size, minimumSize: rect.size)
-                print(calculatedImageSize)
                 let calculatedImageOrigin = CGPoint(x: rect.size.width / 2 - calculatedImageSize.width / 2,
                                                     y: rect.size.height / 2 - calculatedImageSize.height / 2)
                 let calculatedImageRect = CGRect(origin: calculatedImageOrigin, size: calculatedImageSize)
