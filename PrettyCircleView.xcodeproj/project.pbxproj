@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B93973124991EC100838C29 /* PrettyCircleView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1B93973024991EC100838C29 /* PrettyCircleView.podspec */; };
 		1BE7F62B1EC9CB9D00268AB5 /* PrettyCircleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE7F6291EC9CB9D00268AB5 /* PrettyCircleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BE7F62D1EC9CBD100268AB5 /* PrettyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7F62C1EC9CBD100268AB5 /* PrettyCircleView.swift */; };
 		1BE7F6351EC9D48700268AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7F6341EC9D48700268AB5 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B93973024991EC100838C29 /* PrettyCircleView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PrettyCircleView.podspec; sourceTree = "<group>"; };
 		1BE7F61C1EC9CB7600268AB5 /* PrettyCircleView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrettyCircleView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE7F6281EC9CB9D00268AB5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BE7F6291EC9CB9D00268AB5 /* PrettyCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyCircleView.h; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		1BE7F6121EC9CB7600268AB5 = {
 			isa = PBXGroup;
 			children = (
+				1B93973024991EC100838C29 /* PrettyCircleView.podspec */,
 				1BE7F6271EC9CB9D00268AB5 /* Sources */,
 				1BE7F6331EC9D48700268AB5 /* Example */,
 				1BE7F61D1EC9CB7600268AB5 /* Products */,
@@ -181,25 +184,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Oleksii Naboichenko";
 				TargetAttributes = {
 					1BE7F61B1EC9CB7600268AB5 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T8835YW8HM;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1150;
 						ProvisioningStyle = Automatic;
 					};
 					1BE7F6311EC9D48700268AB5 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = T8835YW8HM;
+						LastSwiftMigration = 1150;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 1BE7F6161EC9CB7600268AB5 /* Build configuration list for PBXProject "PrettyCircleView" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -221,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B93973124991EC100838C29 /* PrettyCircleView.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -297,6 +303,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -304,6 +311,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -347,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -357,6 +366,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -364,6 +374,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -415,7 +426,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -437,7 +448,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -451,7 +462,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oleksii.naboichenko.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -465,7 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oleksii.naboichenko.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

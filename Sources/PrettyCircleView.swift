@@ -94,7 +94,13 @@ import UIKit
         ///Draw content background
         if let contentBackgroundColor = contentBackgroundColor {
             context.setFillColor(contentBackgroundColor.cgColor)
-            context.addArc(center: contentCenter, radius: contentRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false)
+            context.addArc(
+                center: contentCenter,
+                radius: contentRadius,
+                startAngle: 0,
+                endAngle: 2.0 * .pi,
+                clockwise: false
+            )
             context.drawPath(using: .fill)
         }
 
@@ -105,19 +111,25 @@ import UIKit
 
             switch imageContentMode {
             case .center:
-                let calculatedImageOrigin = CGPoint(x: contentCenter.x - contentImage.size.width / 2,
-                                                    y: contentCenter.y - contentImage.size.height / 2)
+                let calculatedImageOrigin = CGPoint(
+                    x: contentCenter.x - contentImage.size.width / 2.0,
+                    y: contentCenter.y - contentImage.size.height / 2.0
+                )
                 contentImage.draw(at: calculatedImageOrigin)
             case .aspectFit:
                 let calculatedImageSize = sizeAspectFit(originalSize: contentImage.size, boundingSize: rect.size)
-                let calculatedImageOrigin = CGPoint(x: rect.size.width / 2 - calculatedImageSize.width / 2,
-                                                    y: rect.size.height / 2 - calculatedImageSize.height / 2)
+                let calculatedImageOrigin = CGPoint(
+                    x: rect.size.width / 2.0 - calculatedImageSize.width / 2.0,
+                    y: rect.size.height / 2.0 - calculatedImageSize.height / 2.0
+                )
                 let calculatedImageRect = CGRect(origin: calculatedImageOrigin, size: calculatedImageSize)
                 contentImage.draw(in: calculatedImageRect)
             case .aspectFill:
                 let calculatedImageSize = sizeAspectFill(originalSize: contentImage.size, minimumSize: rect.size)
-                let calculatedImageOrigin = CGPoint(x: rect.size.width / 2 - calculatedImageSize.width / 2,
-                                                    y: rect.size.height / 2 - calculatedImageSize.height / 2)
+                let calculatedImageOrigin = CGPoint(
+                    x: rect.size.width / 2.0 - calculatedImageSize.width / 2.0,
+                    y: rect.size.height / 2.0 - calculatedImageSize.height / 2.0
+                )
                 let calculatedImageRect = CGRect(origin: calculatedImageOrigin, size: calculatedImageSize)
                 contentImage.draw(in: calculatedImageRect)
             }
@@ -126,7 +138,7 @@ import UIKit
         ///Draw border line
         context.setStrokeColor(contentBorderColor.cgColor)
         context.setLineWidth(contentBorderWidth)
-        context.addArc(center: contentCenter, radius: contentBorderRadius, startAngle: 0, endAngle: 2 * .pi, clockwise: false)
+        context.addArc(center: contentCenter, radius: contentBorderRadius, startAngle: 0, endAngle: 2.0 * .pi, clockwise: false)
         context.drawPath(using: .stroke)
     }
 

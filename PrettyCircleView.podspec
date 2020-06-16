@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name              = "PrettyCircleView"
     s.module_name       = "PrettyCircleView"
-    s.version           = "0.2.1"
+    s.version           = "0.2.2"
     s.summary           = "A pretty view for  circle content."
     s.description       = "Rewritten UIView for rendering content in a circle."
     s.homepage          = "https://github.com/nab0y4enko/PrettyCircleView"
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     
     s.frameworks        = "UIKit", "CoreGraphics", "QuartzCore"
 
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '11.0'
 
-    s.pod_target_xcconfig   = { 'SWIFT_VERSION' => '4.0' }
+    s.pod_target_xcconfig   = { 'SWIFT_VERSION' => '5.0' }
 end
